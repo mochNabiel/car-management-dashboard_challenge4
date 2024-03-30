@@ -1,0 +1,539 @@
+{
+	"info": {
+		"_postman_id": "8c1d69b2-02b6-4cb2-8c82-7b3757412486",
+		"name": "CHALLENGE-4-BINAR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23106923"
+	},
+	"item": [
+		{
+			"name": "CARS",
+			"item": [
+				{
+					"name": "Get Cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Car By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/car/id/edb27c5a-e873-4354-a1b6-c4f0b3bdf0e8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"id",
+								"edb27c5a-e873-4354-a1b6-c4f0b3bdf0e8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Car By Capacity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/car/capacity/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"capacity",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "plate",
+									"value": "B 1234 GG",
+									"type": "text"
+								},
+								{
+									"key": "manufacture",
+									"value": "Toyota",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "Supra",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/x/Downloads/304dbc_b944d20f13e5499da7c0be3bca93a604~mv2.webp"
+								},
+								{
+									"key": "rentPerDay",
+									"value": "2000000",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Ini adalah mobil toyota supra",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "Automanual",
+									"type": "text"
+								},
+								{
+									"key": "availableAt",
+									"value": "2024-09-22",
+									"type": "text"
+								},
+								{
+									"key": "available",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Sport Car",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2024",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "plate",
+									"value": "AD 5432 HH",
+									"type": "text"
+								},
+								{
+									"key": "manufacture",
+									"value": "BMW",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "X5 Updated",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/x/Downloads/New-BMW-X5_1-3053945986.webp"
+								},
+								{
+									"key": "rentPerDay",
+									"value": "3000000",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Ini adalah BMW X5 Updated",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "CVT",
+									"type": "text"
+								},
+								{
+									"key": "availableAt",
+									"value": "2024-09-13",
+									"type": "text"
+								},
+								{
+									"key": "available",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "SUV",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2022",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/car/id/583fcc6c-c162-4506-bd5b-4e312a734d32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"id",
+								"583fcc6c-c162-4506-bd5b-4e312a734d32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Car",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/car/id/cdd39816-5508-4170-ba9b-b1d6d6fa4d13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"id",
+								"cdd39816-5508-4170-ba9b-b1d6d6fa4d13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OPTIONS",
+			"item": [
+				{
+					"name": "Get Options",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/option",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"option"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Option By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/option/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"option",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Option",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "carId",
+									"value": "edb27c5a-e873-4354-a1b6-c4f0b3bdf0e8",
+									"type": "text"
+								},
+								{
+									"key": "option",
+									"value": "Cruise Control",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/option",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"option"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Option",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "option",
+									"value": "Tinted Glass Updated",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/option/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"option",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Option",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/option/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"option",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SPECS",
+			"item": [
+				{
+					"name": "Get Specs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/spec",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"spec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Spec By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/spec/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"spec",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Spec",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "carId",
+									"value": "edb27c5a-e873-4354-a1b6-c4f0b3bdf0e8",
+									"type": "text"
+								},
+								{
+									"key": "spec",
+									"value": "Leather-wrapped shift knob",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/spec",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"spec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Spec",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "spec",
+									"value": "Body color folding remote-controlled pwr mirrors Updated",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/spec/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"spec",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Spec",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/spec/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"spec",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
