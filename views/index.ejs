@@ -353,36 +353,6 @@
           container.appendChild(cardDiv);
         });
       }
-
-      const deleteCarButtons = document.querySelectorAll(".btn-delete-car");
-      const confirmDeleteButton = document.getElementById("btn-confirm-delete");
-
-      deleteCarButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const carId = button.dataset.carId; // Mendapatkan ID mobil dari atribut data
-          // Set ID mobil ke input hidden di modal konfirmasi
-          document.getElementById("deleteCarId").value = carId;
-          // Tampilkan modal konfirmasi penghapusan
-          $("#deleteModal").modal("show");
-        });
-      });
-
-      confirmDeleteButton.addEventListener("click", () => {
-        const carId = document.getElementById("deleteCarId").value; // Mendapatkan ID mobil dari input hidden
-        // Kirim permintaan DELETE ke API untuk menghapus mobil dengan ID yang sesuai
-        fetch(`/api/car/${carId}`, {
-          method: "DELETE",
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data); // Tampilkan respons dari API jika diperlukan
-            // Refresh halaman setelah penghapusan berhasil
-            window.location.reload();
-          })
-          .catch((error) => {
-            console.error("Error:", error); // Tangani kesalahan jika terjadi
-          });
-      });
     </script>
   </body>
 </html>
