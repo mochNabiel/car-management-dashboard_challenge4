@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Car Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #f4f5f7; overflow-x: hidden">
+    <div class="d-flex" style="min-height: 100vh; width: 100vw">
+      <!-- Main Menu -->
+      <nav style="min-width: 70px; background-color: #0d28a6">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+          style="width: 100%; height: 70px"
+        >
+          <div
+            style="width: 34px; height: 34px; background-color: #cfd4ed"
+          ></div>
+        </div>
+        <a></a>
+        <div
+          class="d-flex flex-column gap-1 align-items-center justify-content-center pt-3"
+          style="width: 100%; height: 70px; color: #ffffff; cursor: pointer"
+        >
+          <img src="icons/fi-home.svg" alt="" fill="#ffffff" />
+          <p style="font-size: 12px; font-weight: 300">Dashboard</p>
+        </div>
+        <div
+          class="d-flex flex-column gap-1 align-items-center justify-content-center pt-3"
+          style="width: 100%; height: 70px; color: #ffffff; cursor: pointer"
+        >
+          <img src="icons/fi-truck.svg" alt="" fill="#ffffff" />
+          <p style="font-size: 12px; font-weight: 300">Cars</p>
+        </div>
+      </nav>
+
+      <!-- Sidebar -->
+      <div
+        class="d-flex flex-column"
+        style="min-width: 220px; background-color: #ffffff"
+      >
+        <div
+          class="shadow-sm d-flex align-items-center ps-3"
+          style="height: 70px"
+        >
+          <div
+            style="width: 100px; height: 34px; background-color: #cfd4ed"
+          ></div>
+        </div>
+        <nav class="d-flex flex-column flex-grow-1">
+          <div
+            class="ps-3"
+            style="
+              margin-top: 24px;
+              height: 42px;
+              display: flex;
+              align-items: center;
+            "
+          >
+            <h1
+              style="
+                font-size: 14px;
+                font-weight: bold;
+                color: #8a8a8a;
+                margin: 0;
+              "
+            >
+              CARS
+            </h1>
+          </div>
+          <div
+            class="ps-3"
+            style="
+              height: 42px;
+              display: flex;
+              align-items: center;
+              background-color: #cfd4ed;
+            "
+          >
+            <h1
+              style="
+                font-size: 14px;
+                font-weight: bold;
+                color: #151515;
+                margin: 0;
+              "
+            >
+              List Car
+            </h1>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Top Navbar & Content -->
+      <div class="flex-grow-1">
+        <!-- Top Navbar -->
+        <nav
+          class="navbar shadow-sm"
+          style="height: 70px; background-color: #ffffff"
+        >
+          <div class="container-fluid">
+            <div
+              class="d-flex justify-content-between align-items-center w-100 pe-3"
+            >
+              <div>
+                <div class="ms-2">
+                  <img src="icons/fi-menu.svg" alt="" />
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <form class="d-flex gap-2" role="search">
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="🔍 Search"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-outline-primary" type="submit">
+                    Search
+                  </button>
+                </form>
+                <div>
+                  <img src="icons/users.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <div class="container px-4">
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="">Cars</a></li>
+                  <li class="breadcrumb-item">
+                    <a id="list-car" href="#">List Car</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Update car Information
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6" style="font-weight: 700; font-size: 20px">
+              Update car Information
+            </div>
+          </div>
+
+          <!-- UPDATE CAR FORM -->
+          <form action="" method="post">
+            <div class="p-5 mb-3" style="background-color: #ffffff">
+              <div class="d-flex gap-5">
+                <div class="flex-grow-1">
+                  <div class="form-field mb-3">
+                    <label for="manufacture" class="form-label"
+                      >Manufaktur :</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="manufacture"
+                      name="manufacture"
+                      placeholder="Contoh : Toyota"
+                      required
+                    />
+                  </div>
+                  <div class="form-field mb-3">
+                    <label for="model" class="form-label">Model :</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="model"
+                      name="model"
+                      placeholder="Contoh : Supra"
+                      required
+                    />
+                  </div>
+                  <div class="form-field mb-3">
+                    <label for="image" class="form-label">Foto :</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="image"
+                      name="image"
+                      accept=".jpg, .jpeg, .png, .svg, .webp"
+                      required
+                    />
+                  </div>
+                  <div class="form-field mb-3">
+                    <label for="rentPerDay" class="form-label"
+                      >Sewa Per Hari :</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="rentPerDay"
+                      name="rentPerDay"
+                      placeholder="Contoh : 2000000"
+                      required
+                    />
+                  </div>
+                  <div class="form-field mb-3">
+                    <label for="capacity" class="form-label">Ukuran :</label>
+                    <select
+                      id="capacity"
+                      name="capacity"
+                      class="form-select"
+                      aria-label="Default select example"
+                      required
+                    >
+                      <option selected disabled>Pilih Ukuran</option>
+                      <option value="2">Small</option>
+                      <option value="4">Medium</option>
+                      <option value="6">Large</option>
+                    </select>
+                  </div>
+                  <div class="form-field mb-3">
+                    <label for="transmission" class="form-label"
+                      >Transmisi :</label
+                    >
+                    <select
+                      id="transmission"
+                      name="transmission"
+                      class="form-select"
+                      aria-label="Default select example"
+                      required
+                    >
+                      <option selected disabled>Pilih transmisi</option>
+                      <option value="Automatic">Automatic</option>
+                      <option value="Automanual">Automanual</option>
+                      <option value="Manual">Manual</option>
+                      <option value="CVT">CVT</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="form-field mb-3">
+                    <label for="availableAt" class="form-label"
+                      >Tanggal Tersedia</label
+                    >
+                    <input
+                      type="date"
+                      id="availableAt"
+                      name="availableAt"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-field mb-3">
+                    <label for="available" class="form-label"
+                      >Ketersediaan :</label
+                    >
+                    <select
+                      name="available"
+                      id="available"
+                      class="form-select"
+                      required
+                    >
+                      <option selected disabled>Pilih Ketersediaan</option>
+                      <option value="1">Tersedia</option>
+                      <option value="0">Tidak Tersedia</option>
+                    </select>
+                  </div>
+
+                  <div class="form-field mb-3">
+                    <label for="type" class="form-label">Tipe :</label>
+                    <select name="type" id="type" class="form-select" required>
+                      <option selected disabled>Pilih tipe</option>
+                      <option value="SUV">SUV</option>
+                      <option value="Sedan">Sedan</option>
+                      <option value="Hatchback">Hatchback</option>
+                      <option value="Sports Car">Sports Car</option>
+                      <option value="Minivan">Minivan</option>
+                      <option value="Other">Lainnya</option>
+                    </select>
+                  </div>
+
+                  <div class="form-field mb-3">
+                    <label for="year" class="form-label">Tahun :</label>
+                    <input
+                      type="month"
+                      class="form-control"
+                      id="year"
+                      name="year"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-field mb-3">
+                    <label for="description" class="form-label"
+                      >Deskripsi :</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="description"
+                      name="description"
+                      rows="4"
+                      cols="50"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex gap-3" style="width: 16rem">
+              <a
+                href="/"
+                role="button"
+                class="btn btn-outline-primary mb-5 flex-grow-1"
+              >
+                Cancel
+              </a>
+              <button type="submit" class="btn btn-primary mb-5 flex-grow-1">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const listCar = document.getElementById("list-car");
+      listCar.addEventListener("click", () => {
+        window.location.href = "/";
+      });
+    </script>
+  </body>
+</html>

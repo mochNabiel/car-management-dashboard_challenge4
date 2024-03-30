@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #f4f5f7; overflow-x: hidden">
+    <div class="d-flex" style="min-height: 100vh; width: 100vw">
+      <!-- Main Menu -->
+      <nav style="min-width: 70px; background-color: #0d28a6">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+          style="width: 100%; height: 70px"
+        >
+          <div
+            style="width: 34px; height: 34px; background-color: #cfd4ed"
+          ></div>
+        </div>
+        <a></a>
+        <div
+          class="d-flex flex-column gap-1 align-items-center justify-content-center pt-3"
+          style="width: 100%; height: 70px; color: #ffffff; cursor: pointer"
+        >
+          <img src="icons/fi-home.svg" alt="" fill="#ffffff" />
+          <p style="font-size: 12px; font-weight: 300">Dashboard</p>
+        </div>
+        <div
+          class="d-flex flex-column gap-1 align-items-center justify-content-center pt-3"
+          style="width: 100%; height: 70px; color: #ffffff; cursor: pointer"
+        >
+          <img src="icons/fi-truck.svg" alt="" fill="#ffffff" />
+          <p style="font-size: 12px; font-weight: 300">Cars</p>
+        </div>
+      </nav>
+
+      <!-- Sidebar -->
+      <div
+        class="d-flex flex-column"
+        style="min-width: 220px; background-color: #ffffff"
+      >
+        <div
+          class="shadow-sm d-flex align-items-center ps-3"
+          style="height: 70px"
+        >
+          <div
+            style="width: 100px; height: 34px; background-color: #cfd4ed"
+          ></div>
+        </div>
+        <nav class="d-flex flex-column flex-grow-1">
+          <div
+            class="ps-3"
+            style="
+              margin-top: 24px;
+              height: 42px;
+              display: flex;
+              align-items: center;
+            "
+          >
+            <h1
+              style="
+                font-size: 14px;
+                font-weight: bold;
+                color: #8a8a8a;
+                margin: 0;
+              "
+            >
+              CARS
+            </h1>
+          </div>
+          <div
+            class="ps-3"
+            style="
+              height: 42px;
+              display: flex;
+              align-items: center;
+              background-color: #cfd4ed;
+            "
+          >
+            <h1
+              style="
+                font-size: 14px;
+                font-weight: bold;
+                color: #151515;
+                margin: 0;
+              "
+            >
+              List Car
+            </h1>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Top Navbar & Content -->
+      <div class="flex-grow-1">
+        <!-- Top Navbar -->
+        <nav
+          class="navbar shadow-sm"
+          style="height: 70px; background-color: #ffffff"
+        >
+          <div class="container-fluid">
+            <div
+              class="d-flex justify-content-between align-items-center w-100 pe-3"
+            >
+              <div class="ms-2">
+                <img src="icons/fi-menu.svg" alt="" />
+              </div>
+              <div class="d-flex gap-3">
+                <form class="d-flex gap-2" role="search">
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="🔍 Search"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-outline-primary" type="submit">
+                    Search
+                  </button>
+                </form>
+                <div>
+                  <img src="icons/users.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <div
+          id="content-container"
+          class="container px-4"
+          style="min-height: calc(100vh-70px); overflow-y: auto"
+        >
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="">Cars</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    List Car
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="row d-flex align-items-center mb-3">
+            <div class="col-md-6" style="font-weight: 700; font-size: 20px">
+              List Car
+            </div>
+            <div class="col-md-6 text-end">
+              <div>
+                <button id="btn-add-car" class="btn btn-primary">
+                  Add New Car
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="btn-group" role="group" aria-label="Filter Buttons">
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-primary me-2 active"
+                  onclick="filterCards('all')"
+                >
+                  All
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-primary me-2"
+                  onclick="filterCards('small')"
+                >
+                  Small
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-primary me-2"
+                  onclick="filterCards('medium')"
+                >
+                  Medium
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-primary me-2"
+                  onclick="filterCards('large')"
+                >
+                  Large
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="cards-container" class="row">
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="images/car-image.png"
+                  class="card-img-top"
+                  alt="card Mobil"
+                />
+                <div class="card-body">
+                  <h6>Nama/Tipe Mobil</h6>
+                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
+                  <p class="card-text">
+                    <span
+                      ><i><img src="icons/fi-clock.svg" alt="" /></i
+                    ></span>
+                    Updated at 4 Apr 2022, 09.00
+                  </p>
+                  <div class="d-flex gap-3">
+                    <button
+                      class="btn btn-outline-danger flex-grow-1 py-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteModal"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      class="btn btn-update-car btn-success flex-grow-1 py-2"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="images/car-image.png"
+                  class="card-img-top"
+                  alt="card Mobil"
+                />
+                <div class="card-body">
+                  <h6>Nama/Tipe Mobil</h6>
+                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
+                  <p class="card-text">
+                    <span
+                      ><i><img src="icons/fi-clock.svg" alt="" /></i
+                    ></span>
+                    Updated at 4 Apr 2022, 09.00
+                  </p>
+                  <div class="d-flex gap-3">
+                    <button
+                      class="btn btn-outline-danger flex-grow-1 py-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteModal"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      class="btn btn-update-car btn-success flex-grow-1 py-2"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="images/car-image.png"
+                  class="card-img-top"
+                  alt="card Mobil"
+                />
+                <div class="card-body">
+                  <h6>Nama/Tipe Mobil</h6>
+                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
+                  <p class="card-text">
+                    <span
+                      ><i><img src="icons/fi-clock.svg" alt="" /></i
+                    ></span>
+                    Updated at 4 Apr 2022, 09.00
+                  </p>
+                  <div class="d-flex gap-3">
+                    <button
+                      class="btn btn-outline-danger flex-grow-1 py-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteModal"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      class="btn btn-update-car btn-success flex-grow-1 py-2"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="images/car-image.png"
+                  class="card-img-top"
+                  alt="card Mobil"
+                />
+                <div class="card-body">
+                  <h6>Nama/Tipe Mobil</h6>
+                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
+                  <p class="card-text">
+                    <span
+                      ><i><img src="icons/fi-clock.svg" alt="" /></i
+                    ></span>
+                    Updated at 4 Apr 2022, 09.00
+                  </p>
+                  <div class="d-flex gap-3">
+                    <button
+                      class="btn btn-outline-danger flex-grow-1 py-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteModal"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      class="btn btn-update-car btn-success flex-grow-1 py-2"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="images/car-image.png"
+                  class="card-img-top"
+                  alt="card Mobil"
+                />
+                <div class="card-body">
+                  <h6>Nama/Tipe Mobil</h6>
+                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
+                  <p class="card-text">
+                    <span
+                      ><i><img src="icons/fi-clock.svg" alt="" /></i
+                    ></span>
+                    Updated at 4 Apr 2022, 09.00
+                  </p>
+                  <div class="d-flex gap-3">
+                    <button
+                      class="btn btn-outline-danger flex-grow-1 py-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteModal"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      class="btn btn-update-car btn-success flex-grow-1 py-2"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="images/car-image.png"
+                  class="card-img-top"
+                  alt="card Mobil"
+                />
+                <div class="card-body">
+                  <h6>Nama/Tipe Mobil</h6>
+                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
+                  <p class="card-text">
+                    <span
+                      ><i><img src="icons/fi-clock.svg" alt="" /></i
+                    ></span>
+                    Updated at 4 Apr 2022, 09.00
+                  </p>
+                  <div class="d-flex gap-3">
+                    <button
+                      class="btn btn-outline-danger flex-grow-1 py-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteModal"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      class="btn btn-update-car btn-success flex-grow-1 py-2"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="images/car-image.png"
+                  class="card-img-top"
+                  alt="card Mobil"
+                />
+                <div class="card-body">
+                  <h6>Nama/Tipe Mobil</h6>
+                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
+                  <p class="card-text">
+                    <span
+                      ><i><img src="icons/fi-clock.svg" alt="" /></i
+                    ></span>
+                    Updated at 4 Apr 2022, 09.00
+                  </p>
+                  <div class="d-flex gap-3">
+                    <button
+                      class="btn btn-outline-danger flex-grow-1 py-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteModal"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      class="btn btn-update-car btn-success flex-grow-1 py-2"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="deleteModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body d-flex flex-column align-items-center p-5">
+              <img src="images/car-delete-modal-image.png" alt="" />
+              <h5 class="fw-bold">Menghapus Data mobil</h5>
+              <p style="text-align: center">
+                Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin
+                ingin menghapus?
+              </p>
+              <div class="d-flex w-100 gap-3">
+                <button type="button" class="btn btn-primary flex-grow-1 py-2">
+                  Ya
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary flex-grow-1 py-2"
+                  data-bs-dismiss="modal"
+                >
+                  Tidak
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const addCarButton = document.getElementById("btn-add-car");
+      const updateCarButtons = document.querySelectorAll(".btn-update-car");
+
+      addCarButton.addEventListener("click", function () {
+        window.location.href = "/add-car";
+      });
+
+      updateCarButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Arahkan halaman ke URL '/update-car'
+          window.location.href = "/update-car";
+        });
+      });
+    </script>
+  </body>
+</html>
