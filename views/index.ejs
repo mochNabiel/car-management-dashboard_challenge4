@@ -163,63 +163,48 @@
             </div>
           </div>
 
-          <div class="row mb-3">
-            <div class="btn-group" role="group" aria-label="Filter Buttons">
-              <div>
-                <button
-                  type="button"
-                  class="btn btn-primary me-2 active"
-                  onclick="filterCards('all')"
-                >
-                  All
-                </button>
-              </div>
-              <div>
-                <button
-                  type="button"
-                  class="btn btn-primary me-2"
-                  onclick="filterCards('small')"
-                >
-                  Small
-                </button>
-              </div>
-              <div>
-                <button
-                  type="button"
-                  class="btn btn-primary me-2"
-                  onclick="filterCards('medium')"
-                >
-                  Medium
-                </button>
-              </div>
-              <div>
-                <button
-                  type="button"
-                  class="btn btn-primary me-2"
-                  onclick="filterCards('large')"
-                >
-                  Large
-                </button>
-              </div>
+          <!-- Sorting Car -->
+          <div class="row mb-4">
+            <div class="col-lg-3" id="filterCar">
+              <% if (typeof cars !== 'undefined') { %>
+              <select
+                id="filterByCapacity"
+                name="filterByCapacity"
+                class="form-select"
+              >
+                <option value="all" selected>All</option>
+                <option value="2">Small</option>
+                <option value="4">Medium</option>
+                <option value="6">Large</option>
+              </select>
+              <% } %>
             </div>
           </div>
 
+          <!-- Render car cards -->
           <div id="cards-container" class="row">
-            <div class="col-md-4 mb-4">
+            <% cars.forEach(car => { %>
+            <div class="col-md-4 mb-4" data-capacity="<%= car.capacity %>">
               <div class="card">
                 <img
-                  src="images/car-image.png"
+                  src="<%= car.image %>"
                   class="card-img-top"
+                  style="width: 100%; height: 16rem; object-fit: cover"
                   alt="card Mobil"
                 />
                 <div class="card-body">
-                  <h6>Nama/Tipe Mobil</h6>
-                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
+                  <h6>
+                    <%= car.manufacture %> <%= car.model %> / <%= car.type %>
+                  </h6>
+                  <h5 class="card-title fw-bold mb-3">
+                    Rp <%= new Intl.NumberFormat("id-ID").format(car.rentPerDay)
+                    %> / hari
+                  </h5>
                   <p class="card-text">
                     <span
                       ><i><img src="icons/fi-clock.svg" alt="" /></i
                     ></span>
-                    Updated at 4 Apr 2022, 09.00
+                    Updated at <%= car.updatedAt.toLocaleString() %>
                   </p>
                   <div class="d-flex gap-3">
                     <button
@@ -238,209 +223,12 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <img
-                  src="images/car-image.png"
-                  class="card-img-top"
-                  alt="card Mobil"
-                />
-                <div class="card-body">
-                  <h6>Nama/Tipe Mobil</h6>
-                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
-                  <p class="card-text">
-                    <span
-                      ><i><img src="icons/fi-clock.svg" alt="" /></i
-                    ></span>
-                    Updated at 4 Apr 2022, 09.00
-                  </p>
-                  <div class="d-flex gap-3">
-                    <button
-                      class="btn btn-outline-danger flex-grow-1 py-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteModal"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      class="btn btn-update-car btn-success flex-grow-1 py-2"
-                    >
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <img
-                  src="images/car-image.png"
-                  class="card-img-top"
-                  alt="card Mobil"
-                />
-                <div class="card-body">
-                  <h6>Nama/Tipe Mobil</h6>
-                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
-                  <p class="card-text">
-                    <span
-                      ><i><img src="icons/fi-clock.svg" alt="" /></i
-                    ></span>
-                    Updated at 4 Apr 2022, 09.00
-                  </p>
-                  <div class="d-flex gap-3">
-                    <button
-                      class="btn btn-outline-danger flex-grow-1 py-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteModal"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      class="btn btn-update-car btn-success flex-grow-1 py-2"
-                    >
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <img
-                  src="images/car-image.png"
-                  class="card-img-top"
-                  alt="card Mobil"
-                />
-                <div class="card-body">
-                  <h6>Nama/Tipe Mobil</h6>
-                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
-                  <p class="card-text">
-                    <span
-                      ><i><img src="icons/fi-clock.svg" alt="" /></i
-                    ></span>
-                    Updated at 4 Apr 2022, 09.00
-                  </p>
-                  <div class="d-flex gap-3">
-                    <button
-                      class="btn btn-outline-danger flex-grow-1 py-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteModal"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      class="btn btn-update-car btn-success flex-grow-1 py-2"
-                    >
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <img
-                  src="images/car-image.png"
-                  class="card-img-top"
-                  alt="card Mobil"
-                />
-                <div class="card-body">
-                  <h6>Nama/Tipe Mobil</h6>
-                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
-                  <p class="card-text">
-                    <span
-                      ><i><img src="icons/fi-clock.svg" alt="" /></i
-                    ></span>
-                    Updated at 4 Apr 2022, 09.00
-                  </p>
-                  <div class="d-flex gap-3">
-                    <button
-                      class="btn btn-outline-danger flex-grow-1 py-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteModal"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      class="btn btn-update-car btn-success flex-grow-1 py-2"
-                    >
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <img
-                  src="images/car-image.png"
-                  class="card-img-top"
-                  alt="card Mobil"
-                />
-                <div class="card-body">
-                  <h6>Nama/Tipe Mobil</h6>
-                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
-                  <p class="card-text">
-                    <span
-                      ><i><img src="icons/fi-clock.svg" alt="" /></i
-                    ></span>
-                    Updated at 4 Apr 2022, 09.00
-                  </p>
-                  <div class="d-flex gap-3">
-                    <button
-                      class="btn btn-outline-danger flex-grow-1 py-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteModal"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      class="btn btn-update-car btn-success flex-grow-1 py-2"
-                    >
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card">
-                <img
-                  src="images/car-image.png"
-                  class="card-img-top"
-                  alt="card Mobil"
-                />
-                <div class="card-body">
-                  <h6>Nama/Tipe Mobil</h6>
-                  <h5 class="card-title fw-bold mb-3">Rp 400.000 / hari</h5>
-                  <p class="card-text">
-                    <span
-                      ><i><img src="icons/fi-clock.svg" alt="" /></i
-                    ></span>
-                    Updated at 4 Apr 2022, 09.00
-                  </p>
-                  <div class="d-flex gap-3">
-                    <button
-                      class="btn btn-outline-danger flex-grow-1 py-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteModal"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      class="btn btn-update-car btn-success flex-grow-1 py-2"
-                    >
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <% }) %>
           </div>
         </div>
       </div>
 
-      <!-- Modal -->
+      <!-- Delete Modal -->
       <div
         class="modal fade"
         id="deleteModal"
@@ -480,6 +268,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
     <script>
       const addCarButton = document.getElementById("btn-add-car");
       const updateCarButtons = document.querySelectorAll(".btn-update-car");
@@ -493,6 +282,106 @@
           // Arahkan halaman ke URL '/update-car'
           window.location.href = "/update-car";
         });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterByCapacity = document.getElementById("filterByCapacity");
+
+        filterByCapacity.addEventListener("change", function () {
+          const selectedCapacity = this.value; // Mendapatkan kapasitas yang dipilih
+          const cardsContainer = document.getElementById("cards-container");
+          const allCars = Array.from(document.querySelectorAll(".col-md-4")); // Mendapatkan semua mobil cards
+
+          allCars.forEach(function (car) {
+            car.style.display = "block"; // Tampilkan kembali semua mobil cards
+          });
+
+          if (selectedCapacity !== "all") {
+            // Jika kapasitas yang dipilih bukan "all", sembunyikan mobil cards yang tidak sesuai
+            allCars.forEach(function (car) {
+              const carCapacity = car.getAttribute("data-capacity");
+              if (carCapacity !== selectedCapacity) {
+                car.style.display = "none";
+              }
+            });
+          }
+        });
+      });
+
+      // Fungsi untuk merender mobil ke dalam container
+      function renderCars(cars, container) {
+        // Kosongkan container sebelum merender mobil
+        container.innerHTML = "";
+
+        // Render setiap mobil dalam cards container
+        cars.forEach(function (car) {
+          const cardDiv = document.createElement("div");
+          cardDiv.classList.add("col-md-4", "mb-4");
+          cardDiv.innerHTML = `
+      <div class="card">
+        <img
+          src="${car.image}"
+          class="card-img-top"
+          style="width: 100%; height: 16rem; object-fit: cover"
+          alt="Card Mobil"
+        />
+        <div class="card-body">
+          <h6>${car.manufacture} ${car.model} / ${car.type}</h6>
+          <h5 class="card-title fw-bold mb-3">Rp ${new Intl.NumberFormat(
+            "id-ID"
+          ).format(car.rentPerDay)} / hari</h5>
+          <p class="card-text">
+            <span><i><img src="icons/fi-clock.svg" alt="" /></i></span> Updated at ${
+              car.updatedAt
+            }
+          </p>
+          <div class="d-flex gap-3">
+            <button
+              class="btn btn-outline-danger flex-grow-1 py-2"
+              data-bs-toggle="modal"
+              data-bs-target="#deleteModal"
+            >
+              Delete
+            </button>
+            <button class="btn btn-update-car btn-success flex-grow-1 py-2">
+              Edit
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+          container.appendChild(cardDiv);
+        });
+      }
+
+      const deleteCarButtons = document.querySelectorAll(".btn-delete-car");
+      const confirmDeleteButton = document.getElementById("btn-confirm-delete");
+
+      deleteCarButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const carId = button.dataset.carId; // Mendapatkan ID mobil dari atribut data
+          // Set ID mobil ke input hidden di modal konfirmasi
+          document.getElementById("deleteCarId").value = carId;
+          // Tampilkan modal konfirmasi penghapusan
+          $("#deleteModal").modal("show");
+        });
+      });
+
+      confirmDeleteButton.addEventListener("click", () => {
+        const carId = document.getElementById("deleteCarId").value; // Mendapatkan ID mobil dari input hidden
+        // Kirim permintaan DELETE ke API untuk menghapus mobil dengan ID yang sesuai
+        fetch(`/api/car/${carId}`, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data); // Tampilkan respons dari API jika diperlukan
+            // Refresh halaman setelah penghapusan berhasil
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.error("Error:", error); // Tangani kesalahan jika terjadi
+          });
       });
     </script>
   </body>
